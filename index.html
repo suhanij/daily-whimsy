@@ -264,6 +264,81 @@ body {
   display: block;
 }
 
+/* ========== DAILY CARD BANNER ========== */
+.daily-card-section {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+}
+.daily-card-paper {
+  display: inline-block;
+  position: relative;
+  background-color: #1a1035;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 70% 30%, rgba(255,220,80,0.5) 0%, rgba(255,220,80,0.5) 2px, transparent 2px),
+    radial-gradient(circle at 88% 15%, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.28) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 25% 65%, rgba(200,180,255,0.3) 0%, rgba(200,180,255,0.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.22) 1px, transparent 1px);
+  padding: 22px 38px 28px;
+  transform: rotate(0.8deg);
+  box-shadow: 6px 8px 0 rgba(0,0,0,0.3), 2px 3px 0 rgba(0,0,0,0.12);
+  border: 2px solid #c9a84c;
+  max-width: 520px;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 93%,
+    97% 98%, 94% 93%, 91% 99%, 88% 93%, 85% 99%,
+    82% 93%, 79% 99%, 76% 93%, 73% 98%, 70% 93%,
+    67% 99%, 64% 93%, 61% 98%, 58% 93%, 55% 99%,
+    52% 93%, 49% 98%, 46% 93%, 43% 99%, 40% 93%,
+    37% 98%, 34% 93%, 31% 99%, 28% 93%, 25% 98%,
+    22% 93%, 19% 99%, 16% 93%, 13% 98%, 10% 93%,
+    7% 99%, 4% 93%, 1% 98%, 0% 93%
+  );
+}
+.daily-card-paper .tape-d {
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px; height: 20px;
+  background: rgba(255,215,110,0.55);
+  border: 1px solid rgba(200,155,50,0.35);
+  border-radius: 1px;
+}
+.daily-label {
+  font-family: 'Kalam', cursive;
+  font-size: 11px;
+  color: #c9a84c;
+  letter-spacing: 4px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+  display: block;
+}
+.daily-title {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 26px;
+  color: #f5e8a8;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(201,168,76,0.4);
+}
+.daily-affirmation {
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  color: #e0d8f8;
+  line-height: 1.65;
+}
+.daily-date {
+  font-family: 'Caveat', cursive;
+  font-size: 12px;
+  color: #c9a84c;
+  opacity: 0.55;
+  margin-top: 10px;
+  display: block;
+}
+
 /* ========== SHUFFLE AREA ========== */
 .shuffle-area {
   text-align: center;
@@ -511,35 +586,43 @@ body {
   aspect-ratio: 2/3.1;
   position: relative;
   cursor: pointer;
-  perspective: 900px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-/* random rotate via inline style */
+.mini-card:hover {
+  box-shadow: 8px 14px 0 rgba(0,0,0,0.28);
+}
 
+/* Scale-swap flip: shrink to 0, swap face, grow back */
 .mini-card-inner {
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transition: transform 0.75s cubic-bezier(0.4,0,0.2,1);
   position: relative;
+  transition: transform 0.2s ease-in;
+  transform: scaleX(1);
+  border-radius: 5px;
+  overflow: hidden;
 }
-.mini-card.flipped .mini-card-inner {
-  transform: rotateY(180deg);
+.mini-card-inner.flipping-out {
+  transform: scaleX(0);
+}
+.mini-card-inner.flipping-in {
+  transition: transform 0.2s ease-out;
+  transform: scaleX(1);
 }
 
 .mini-face {
   position: absolute;
   inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   border-radius: 5px;
-  clip-path: inset(0 round 5px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 7px 6px 10px;
   box-shadow: 4px 6px 0 rgba(0,0,0,0.24), 1px 2px 0 rgba(0,0,0,0.1);
+}
+.mini-face.hidden {
+  display: none;
 }
 
 /* MINI CARD BACK (dark, visible by default) */
@@ -571,7 +654,6 @@ body {
 
 /* MINI CARD FRONT (texture, hidden until flip) */
 .mini-front {
-  transform: rotateY(180deg);
   position: relative;
 }
 /* washi tape on mini front */
@@ -625,8 +707,8 @@ body {
 }
 
 /* hover lift */
-.mini-card:hover .mini-card-inner {
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+.mini-card:hover {
+  transform: translateY(-8px) scale(1.05) !important;
 }
 
 /* ========== TOAST ========== */
@@ -748,6 +830,17 @@ body {
     </div>
   </div>
 
+  <!-- DAILY CARD -->
+  <div class="daily-card-section">
+    <div class="daily-card-paper" id="dailyCardPaper">
+      <div class="tape-d"></div>
+      <span class="daily-label">✦ CARD OF THE DAY ✦</span>
+      <div class="daily-title" id="dailyTitle">loading today's card...</div>
+      <div class="daily-affirmation" id="dailyAffirmation"></div>
+      <span class="daily-date" id="dailyDate"></span>
+    </div>
+  </div>
+
   <!-- SHUFFLE -->
   <div class="shuffle-area">
     <div class="prompt-note">
@@ -831,7 +924,42 @@ const illos = {
 
   leafFairy: () => `<svg viewBox="0 0 100 100"><path d="M50,88 Q18,72 16,44 Q14,20 36,14 Q58,8 66,28 Q76,50 50,88 Z" fill="#7ab858" stroke="#3a6828" stroke-width="2.5" stroke-linejoin="round"/><path d="M50,88 L50,14" fill="none" stroke="#3a6828" stroke-width="1.8" stroke-linecap="round"/><path d="M50,72 Q38,62 32,50" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,60 Q40,50 36,38" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,48 Q58,42 62,30" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,30 Q30,18 24,28 Q20,38 34,38 Q42,38 50,30 Z" fill="rgba(220,240,255,0.5)" stroke="rgba(100,150,200,0.6)" stroke-width="1.5"/><path d="M50,30 Q70,18 76,28 Q80,38 66,38 Q58,38 50,30 Z" fill="rgba(220,240,255,0.5)" stroke="rgba(100,150,200,0.6)" stroke-width="1.5"/><circle cx="50" cy="28" r="5" fill="#f5d8b0" stroke="#c89870" stroke-width="1.5"/><path d="M30,14 L32,22 M26,18 L36,18" stroke="#ffd700" stroke-width="1.8" stroke-linecap="round"/></svg>`,
 
-  sunflower: () => `<svg viewBox="0 0 100 100"><line x1="50" y1="95" x2="50" y2="55" stroke="#558844" stroke-width="3.5" stroke-linecap="round"/><path d="M50,75 Q35,68 28,74" fill="none" stroke="#558844" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(45,50,47)"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(90,50,47)"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(135,50,47)"/><circle cx="50" cy="47" r="15" fill="#8a4818" stroke="#5a2808" stroke-width="2.5"/><circle cx="44" cy="43" r="2" fill="#5a2808"/><circle cx="51" cy="41" r="2" fill="#5a2808"/><circle cx="56" cy="46" r="2" fill="#5a2808"/><circle cx="46" cy="53" r="2" fill="#5a2808"/></svg>`,
+  sunflower: () => `<svg viewBox="0 0 100 100">
+    <!-- stem -->
+    <path d="M50,96 Q48,80 50,65" stroke="#4a8030" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <!-- left leaf -->
+    <path d="M50,82 Q36,76 30,82 Q36,90 50,84 Z" fill="#6aaa40" stroke="#3a7020" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="50" y1="83" x2="34" y2="82" stroke="#3a7020" stroke-width="1" stroke-linecap="round"/>
+    <!-- right leaf -->
+    <path d="M50,74 Q64,68 70,74 Q64,82 50,76 Z" fill="#6aaa40" stroke="#3a7020" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="50" y1="75" x2="66" y2="74" stroke="#3a7020" stroke-width="1" stroke-linecap="round"/>
+    <!-- petals - 12 individual pointed petals -->
+    <path d="M50,44 L47,28 Q50,24 53,28 Z" fill="#f5c832" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L63,32 Q67,28 65,35 Z" fill="#f5c832" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L66,44 Q70,44 67,50 Z" fill="#eab820" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L63,57 Q67,61 61,62 Z" fill="#f5c832" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L50,62 Q50,67 44,64 Z" fill="#eab820" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L37,57 Q33,61 34,54 Z" fill="#f5c832" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L34,44 Q30,44 33,38 Z" fill="#eab820" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50,44 L37,32 Q33,28 39,29 Z" fill="#f5c832" stroke="#c89010" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- between petals (secondary layer slightly smaller) -->
+    <path d="M50,44 L55,29 Q58,25 60,31 Z" fill="#f0b818" stroke="#c89010" stroke-width="1.2" stroke-linejoin="round" opacity="0.8"/>
+    <path d="M50,44 L65,50 Q69,54 63,56 Z" fill="#f0b818" stroke="#c89010" stroke-width="1.2" stroke-linejoin="round" opacity="0.8"/>
+    <path d="M50,44 L44,60 Q41,65 38,60 Z" fill="#f0b818" stroke="#c89010" stroke-width="1.2" stroke-linejoin="round" opacity="0.8"/>
+    <path d="M50,44 L35,38 Q31,34 37,32 Z" fill="#f0b818" stroke="#c89010" stroke-width="1.2" stroke-linejoin="round" opacity="0.8"/>
+    <!-- center disk -->
+    <circle cx="50" cy="44" r="14" fill="#5a2808" stroke="#3a1805" stroke-width="2"/>
+    <!-- seed pattern on center -->
+    <circle cx="50" cy="38" r="2" fill="#8a4818"/>
+    <circle cx="56" cy="40" r="1.8" fill="#8a4818"/>
+    <circle cx="58" cy="46" r="1.8" fill="#8a4818"/>
+    <circle cx="55" cy="52" r="1.8" fill="#8a4818"/>
+    <circle cx="50" cy="54" r="2" fill="#8a4818"/>
+    <circle cx="44" cy="52" r="1.8" fill="#8a4818"/>
+    <circle cx="42" cy="46" r="1.8" fill="#8a4818"/>
+    <circle cx="44" cy="40" r="1.8" fill="#8a4818"/>
+    <circle cx="50" cy="44" r="4" fill="#7a3810"/>
+  </svg>`,
 
   hedgehog: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="72" rx="32" ry="18" fill="#c89860" stroke="#8a5820" stroke-width="2.5"/><path d="M30,72 Q28,55 38,48 Q50,42 62,48 Q72,55 70,72 Z" fill="#8a5820" stroke="#8a5820" stroke-width="1.5"/><path d="M38,48 L32,36 M42,44 L38,30 M48,42 L46,28 M54,42 L54,28 M60,44 L64,30 M64,48 L70,36" stroke="#8a5820" stroke-width="2" stroke-linecap="round"/><ellipse cx="35" cy="70" rx="12" ry="10" fill="#e8c898" stroke="#8a5820" stroke-width="2"/><circle cx="32" cy="67" r="3" fill="white" stroke="#8a5820" stroke-width="1.5"/><circle cx="32.5" cy="67" r="1.5" fill="#180808"/><ellipse cx="36" cy="73" rx="5" ry="3" fill="#c85878" stroke="#8a2848" stroke-width="1"/></svg>`,
 
@@ -940,7 +1068,7 @@ cards.forEach((card, i) => {
   const illoSvg = illos[card.illoKey]();
   const wc = washibackColors[i % washibackColors.length];
 
-  // Mini card container
+  // Build mini card container
   const outer = document.createElement('div');
   outer.className = 'mini-card';
   outer.style.transform = `rotate(${rot}deg)`;
@@ -948,7 +1076,7 @@ cards.forEach((card, i) => {
   const inner = document.createElement('div');
   inner.className = 'mini-card-inner';
 
-  // — BACK face —
+  // — BACK face (shown by default) —
   const back = document.createElement('div');
   back.className = 'mini-face mini-back';
   back.innerHTML = `
@@ -963,9 +1091,9 @@ cards.forEach((card, i) => {
     </div>
   `;
 
-  // — FRONT face —
+  // — FRONT face (hidden by default) —
   const front = document.createElement('div');
-  front.className = `mini-face mini-front ${tex.cls}`;
+  front.className = `mini-face mini-front ${tex.cls} hidden`;
   front.style.color = tex.color;
 
   // washi tape
@@ -983,11 +1111,26 @@ cards.forEach((card, i) => {
   inner.appendChild(front);
   outer.appendChild(inner);
 
+  let isFlipped = false;
   outer.addEventListener('click', () => {
-    outer.classList.toggle('flipped');
-    if (outer.classList.contains('flipped')) {
-      showToast(`✦ ${card.title} ✦`);
-    }
+    if (inner.classList.contains('flipping-out')) return; // mid-animation guard
+
+    inner.classList.add('flipping-out');
+
+    setTimeout(() => {
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        back.classList.add('hidden');
+        front.classList.remove('hidden');
+        showToast(`✦ ${card.title} ✦`);
+      } else {
+        front.classList.add('hidden');
+        back.classList.remove('hidden');
+      }
+      inner.classList.remove('flipping-out');
+      inner.classList.add('flipping-in');
+      setTimeout(() => inner.classList.remove('flipping-in'), 220);
+    }, 200);
   });
 
   grid.appendChild(outer);
@@ -999,13 +1142,98 @@ cards.forEach((card, i) => {
 let bigCardIsFlipped = false;
 let currentCardIdx = -1;
 
+// Fisher-Yates shuffle for true randomness
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Seeded extra entropy from timestamp + mouse movement
+let mouseEntropy = 0;
+document.addEventListener('mousemove', e => { mouseEntropy = (mouseEntropy + e.clientX * e.clientY) % 999983; });
+
+function trueRandom(max) {
+  const seed = (Date.now() ^ mouseEntropy ^ Math.floor(Math.random() * 1e9));
+  // xorshift32
+  let s = seed >>> 0 || 1;
+  s ^= s << 13; s ^= s >>> 17; s ^= s << 5;
+  return (s >>> 0) % max;
+}
+
+let shuffleRunning = false;
+
 function drawCard() {
+  if (shuffleRunning) return;
+  shuffleRunning = true;
+
   const btn = document.getElementById('shuffleBtn');
+  btn.disabled = true;
   btn.classList.add('shuffling');
   setTimeout(() => btn.classList.remove('shuffling'), 700);
 
-  const i = Math.floor(Math.random() * cards.length);
-  setTimeout(() => revealCard(cards[i], i), 450);
+  // Show the preview area
+  const area = document.getElementById('revealArea');
+  const wrap = document.getElementById('bigCardWrap');
+  const front = document.getElementById('bigFront');
+
+  // Reset big card to back
+  wrap.classList.remove('flipped');
+  area.classList.add('visible');
+  setTimeout(() => area.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+
+  // Build shuffled deck order for the animation
+  const shuffledIndices = shuffleArray(cards.map((_, i) => i));
+  const finalIndex = shuffledIndices[trueRandom(shuffledIndices.length)];
+  const finalCard = cards[finalIndex];
+
+  // Flash through random cards rapidly on the big card face
+  let flashCount = 0;
+  const totalFlashes = 18 + trueRandom(8); // 18-25 flashes
+  const flashOrder = shuffleArray([...shuffledIndices, ...shuffledIndices]).slice(0, totalFlashes);
+
+  function flashNext() {
+    if (flashCount >= totalFlashes) {
+      // Land on final card
+      setTimeout(() => {
+        revealCard(finalCard, finalIndex);
+        btn.disabled = false;
+        shuffleRunning = false;
+      }, 180);
+      return;
+    }
+
+    const idx = flashOrder[flashCount];
+    const c = cards[idx];
+    const tex = textures[idx % textures.length];
+    const illoSvg = illos[c.illoKey]();
+
+    front.className = `card-face big-front ${tex.cls}`;
+    front.style.color = tex.color;
+    front.innerHTML = `
+      <div class="card-washi" style="background:${tex.washiBg};border:1px solid ${tex.washiBd};"></div>
+      <div style="font-family:'Kalam',cursive;font-size:10px;letter-spacing:2px;color:${tex.accent};opacity:0.65;margin-top:14px">✦ card ${String(c.id).padStart(2,'0')} ✦</div>
+      <div class="big-illo">${illoSvg}</div>
+      <div class="big-title" style="color:${tex.accent}">${c.title}</div>
+      <div class="big-affirmation" style="font-size:13px;opacity:0.7">"${c.affirmation}"</div>
+      <div class="big-num" style="color:${tex.accent}">✦ · ✦ · ✦</div>
+    `;
+
+    // Show front during flash
+    wrap.classList.add('flipped');
+
+    flashCount++;
+    // Ease: fast at start, slow down at end
+    const progress = flashCount / totalFlashes;
+    const delay = 60 + Math.floor(progress * progress * 340);
+    setTimeout(flashNext, delay);
+  }
+
+  // Start flashing after brief pause
+  setTimeout(flashNext, 400);
 }
 
 function revealCard(card, i) {
@@ -1057,7 +1285,24 @@ function toggleBigFlip() {
   }
 }
 
-function showToast(msg) {
+// =============================================
+// LOAD DAILY CARD FROM JSON
+// =============================================
+async function loadDailyCard() {
+  try {
+    const res = await fetch('daily_card.json?nocache=' + Date.now());
+    const data = await res.json();
+    document.getElementById('dailyTitle').textContent = data.title;
+    document.getElementById('dailyAffirmation').textContent = '"' + data.affirmation + '"';
+    document.getElementById('dailyDate').textContent = data.date;
+  } catch (e) {
+    document.getElementById('dailyTitle').textContent = 'The Wandering Star';
+    document.getElementById('dailyAffirmation').textContent = '"You showed up today, and that alone is a small act of magic worth celebrating."';
+    document.getElementById('dailyDate').textContent = 'today';
+  }
+}
+loadDailyCard();
+
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
