@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ The Whimsy Deck ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Caveat', cursive;
+  overflow-x: hidden;
+  background: #9a6830;
+  cursor: default;
+}
+
+/* ========== DESK ========== */
+.desk {
+  min-height: 100vh;
+  position: relative;
+  background:
+    repeating-linear-gradient(87deg, transparent 0px, transparent 34px, rgba(60,25,5,0.07) 34px, rgba(60,25,5,0.07) 36px),
+    repeating-linear-gradient(93deg, transparent 0px, transparent 60px, rgba(60,25,5,0.04) 60px, rgba(60,25,5,0.04) 61px),
+    radial-gradient(ellipse at 30% 70%, #c8945a 0%, #b07840 40%, #9a6830 100%);
+  padding: 20px 14px 100px;
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ========== CSS PAPER TEXTURES (15 types) ========== */
+/* 1. Pink Gingham */
+.tex-pink-gingham {
+  background-color: #f8d5e2;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(210,80,130,0.22) 0px, rgba(210,80,130,0.22) 11px, transparent 11px, transparent 22px),
+    repeating-linear-gradient(90deg,  rgba(210,80,130,0.22) 0px, rgba(210,80,130,0.22) 11px, transparent 11px, transparent 22px),
+    repeating-linear-gradient(0deg,   rgba(240,160,185,0.18) 5px, rgba(240,160,185,0.18) 6px, transparent 6px, transparent 22px),
+    repeating-linear-gradient(90deg,  rgba(240,160,185,0.18) 5px, rgba(240,160,185,0.18) 6px, transparent 6px, transparent 22px);
+}
+/* 2. Green Plaid */
+.tex-green-plaid {
+  background-color: #c8dab8;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(40,80,30,0.32) 0px, rgba(40,80,30,0.32) 7px, transparent 7px, transparent 34px),
+    repeating-linear-gradient(90deg,  rgba(40,80,30,0.32) 0px, rgba(40,80,30,0.32) 7px, transparent 7px, transparent 34px),
+    repeating-linear-gradient(0deg,   rgba(40,80,30,0.15) 14px, rgba(40,80,30,0.15) 17px, transparent 17px, transparent 34px),
+    repeating-linear-gradient(90deg,  rgba(40,80,30,0.15) 14px, rgba(40,80,30,0.15) 17px, transparent 17px, transparent 34px);
+}
+/* 3. Blue Plaid */
+.tex-blue-plaid {
+  background-color: #c0d0ee;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(20,45,140,0.28) 0px, rgba(20,45,140,0.28) 6px, transparent 6px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(20,45,140,0.28) 0px, rgba(20,45,140,0.28) 6px, transparent 6px, transparent 28px),
+    repeating-linear-gradient(0deg,   rgba(20,45,140,0.13) 12px, rgba(20,45,140,0.13) 14px, transparent 14px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(20,45,140,0.13) 12px, rgba(20,45,140,0.13) 14px, transparent 14px, transparent 28px);
+}
+/* 4. Kraft Brown */
+.tex-kraft {
+  background-color: #c89060;
+  background-image:
+    repeating-linear-gradient(105deg, rgba(90,45,10,0.12) 0px, rgba(90,45,10,0.12) 1px, transparent 1px, transparent 8px),
+    repeating-linear-gradient(75deg,  rgba(90,45,10,0.08) 0px, rgba(90,45,10,0.08) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(90deg,  rgba(160,100,40,0.1) 0px, rgba(160,100,40,0.1) 3px, transparent 3px, transparent 30px);
+}
+/* 5. Graph Paper */
+.tex-graph {
+  background-color: #e4eedd;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(50,110,50,0.28) 0px, rgba(50,110,50,0.28) 1px, transparent 1px, transparent 14px),
+    repeating-linear-gradient(90deg,  rgba(50,110,50,0.28) 0px, rgba(50,110,50,0.28) 1px, transparent 1px, transparent 14px),
+    repeating-linear-gradient(0deg,   rgba(50,110,50,0.12) 0px, rgba(50,110,50,0.12) 1px, transparent 1px, transparent 7px),
+    repeating-linear-gradient(90deg,  rgba(50,110,50,0.12) 0px, rgba(50,110,50,0.12) 1px, transparent 1px, transparent 7px);
+}
+/* 6. Linen */
+.tex-linen {
+  background-color: #f0e2c8;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(120,80,30,0.12) 0px, rgba(120,80,30,0.12) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(90deg,  rgba(120,80,30,0.08) 0px, rgba(120,80,30,0.08) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(0deg,   rgba(180,140,80,0.06) 2px, rgba(180,140,80,0.06) 3px, transparent 3px, transparent 10px);
+}
+/* 7. Lavender Watercolor */
+.tex-lavender {
+  background-color: #d8c8f0;
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(160,130,220,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 65%, rgba(180,150,235,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 10%, rgba(140,110,200,0.2) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, rgba(140,100,200,0.04) 0px, rgba(140,100,200,0.04) 1px, transparent 1px, transparent 18px);
+}
+/* 8. Dark Navy with Stars */
+.tex-dark-navy {
+  background-color: #181830;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.35) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 45% 10%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.25) 1px, transparent 1px),
+    radial-gradient(circle at 70% 30%, rgba(255,220,80,0.5) 0%, rgba(255,220,80,0.5) 2px, transparent 2px),
+    radial-gradient(circle at 88% 15%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 25% 60%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 1px, transparent 1px),
+    radial-gradient(circle at 60% 55%, rgba(200,180,255,0.35) 0%, rgba(200,180,255,0.35) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 82% 70%, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.28) 1px, transparent 1px),
+    radial-gradient(circle at 10% 80%, rgba(255,220,80,0.4) 0%, rgba(255,220,80,0.4) 2px, transparent 2px),
+    radial-gradient(circle at 50% 85%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.22) 1px, transparent 1px),
+    radial-gradient(circle at 35% 40%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.18) 1px, transparent 1px);
+}
+/* 9. Teal Plaid */
+.tex-teal-plaid {
+  background-color: #aed0d0;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(15,75,75,0.3) 0px, rgba(15,75,75,0.3) 7px, transparent 7px, transparent 32px),
+    repeating-linear-gradient(90deg,  rgba(15,75,75,0.3) 0px, rgba(15,75,75,0.3) 7px, transparent 7px, transparent 32px),
+    repeating-linear-gradient(0deg,   rgba(15,75,75,0.14) 13px, rgba(15,75,75,0.14) 16px, transparent 16px, transparent 32px),
+    repeating-linear-gradient(90deg,  rgba(15,75,75,0.14) 13px, rgba(15,75,75,0.14) 16px, transparent 16px, transparent 32px);
+}
+/* 10. Rose Wash */
+.tex-rose {
+  background-color: #f0ccd6;
+  background-image:
+    radial-gradient(ellipse at 25% 25%, rgba(210,100,140,0.2) 0%, transparent 65%),
+    radial-gradient(ellipse at 70% 70%, rgba(220,120,155,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 15%, rgba(200,80,120,0.12) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, rgba(210,100,140,0.05) 0px, rgba(210,100,140,0.05) 1px, transparent 1px, transparent 20px);
+}
+/* 11. Ocean Wash */
+.tex-ocean {
+  background-color: #b8d8ea;
+  background-image:
+    radial-gradient(ellipse at 20% 35%, rgba(20,90,140,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse at 65% 65%, rgba(15,80,130,0.18) 0%, transparent 55%),
+    repeating-linear-gradient(170deg, rgba(20,90,140,0.07) 0px, rgba(20,90,140,0.07) 2px, transparent 2px, transparent 15px),
+    repeating-linear-gradient(10deg,  rgba(20,90,140,0.05) 0px, rgba(20,90,140,0.05) 1px, transparent 1px, transparent 18px);
+}
+/* 12. Newsprint */
+.tex-newsprint {
+  background-color: #e8dfc8;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(60,45,20,0.1) 0px, rgba(60,45,20,0.1) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(90deg, rgba(60,45,20,0.04) 0px, rgba(60,45,20,0.04) 40px, transparent 40px, transparent 80px),
+    radial-gradient(ellipse at 60% 40%, rgba(120,90,40,0.08) 0%, transparent 70%);
+}
+/* 13. Yellow Gingham */
+.tex-yellow-gingham {
+  background-color: #f8f0b8;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(185,145,10,0.3) 0px, rgba(185,145,10,0.3) 10px, transparent 10px, transparent 20px),
+    repeating-linear-gradient(90deg,  rgba(185,145,10,0.3) 0px, rgba(185,145,10,0.3) 10px, transparent 10px, transparent 20px),
+    repeating-linear-gradient(0deg,   rgba(220,190,60,0.15) 5px, rgba(220,190,60,0.15) 6px, transparent 6px, transparent 20px),
+    repeating-linear-gradient(90deg,  rgba(220,190,60,0.15) 5px, rgba(220,190,60,0.15) 6px, transparent 6px, transparent 20px);
+}
+/* 14. Red Gingham */
+.tex-red-gingham {
+  background-color: #f8d0c8;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(170,30,30,0.28) 0px, rgba(170,30,30,0.28) 11px, transparent 11px, transparent 22px),
+    repeating-linear-gradient(90deg,  rgba(170,30,30,0.28) 0px, rgba(170,30,30,0.28) 11px, transparent 11px, transparent 22px),
+    repeating-linear-gradient(0deg,   rgba(210,80,80,0.12) 5px, rgba(210,80,80,0.12) 6px, transparent 6px, transparent 22px),
+    repeating-linear-gradient(90deg,  rgba(210,80,80,0.12) 5px, rgba(210,80,80,0.12) 6px, transparent 6px, transparent 22px);
+}
+/* 15. Purple Plaid */
+.tex-purple-plaid {
+  background-color: #d0bce8;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(65,25,115,0.3) 0px, rgba(65,25,115,0.3) 6px, transparent 6px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(65,25,115,0.3) 0px, rgba(65,25,115,0.3) 6px, transparent 6px, transparent 28px),
+    repeating-linear-gradient(0deg,   rgba(65,25,115,0.14) 12px, rgba(65,25,115,0.14) 15px, transparent 15px, transparent 28px),
+    repeating-linear-gradient(90deg,  rgba(65,25,115,0.14) 12px, rgba(65,25,115,0.14) 15px, transparent 15px, transparent 28px);
+}
+
+/* ========== BG LAYER ========== */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ========== HEADER ========== */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-top: 18px;
+  position: relative;
+  z-index: 10;
+}
+
+.header-paper {
+  display: inline-block;
+  position: relative;
+  transform: rotate(-1.3deg);
+  /* ruled lines */
+  background-color: #f5ead0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(60,30,10,0.09) 27px, rgba(60,30,10,0.09) 28px),
+    linear-gradient(160deg, #f8f0d8 0%, #ead8b0 100%);
+  padding: 24px 50px 30px;
+  box-shadow: 6px 8px 0 rgba(0,0,0,0.2), 2px 3px 0 rgba(0,0,0,0.08);
+  border: 1px solid rgba(140,90,30,0.18);
+  /* torn bottom edge via clip-path */
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 94%,
+    97% 98%, 94% 93%, 91% 99%, 88% 94%, 85% 100%,
+    82% 95%, 79% 100%, 76% 94%, 73% 99%, 70% 95%,
+    67% 100%, 64% 95%, 61% 99%, 58% 94%, 55% 100%,
+    52% 95%, 49% 99%, 46% 94%, 43% 100%, 40% 95%,
+    37% 99%, 34% 94%, 31% 100%, 28% 95%, 25% 99%,
+    22% 94%, 19% 99%, 16% 94%, 13% 99%, 10% 95%,
+    7% 100%, 4% 95%, 1% 99%, 0% 94%
+  );
+}
+
+/* Tape pieces on header */
+.header-paper .tape-h1, .header-paper .tape-h2, .header-paper .tape-h3 {
+  position: absolute;
+  height: 20px;
+  border-radius: 1px;
+}
+.header-paper .tape-h1 {
+  width: 62px; top: -9px; left: 22px;
+  transform: rotate(-4deg);
+  background: rgba(255,215,110,0.58);
+  border: 1px solid rgba(200,155,50,0.4);
+}
+.header-paper .tape-h2 {
+  width: 50px; top: -9px; right: 18px;
+  transform: rotate(5deg);
+  background: rgba(190,225,215,0.62);
+  border: 1px solid rgba(90,165,145,0.4);
+}
+.header-paper .tape-h3 {
+  width: 44px; bottom: -9px; left: 50%; transform: translateX(-50%) rotate(-2deg);
+  background: rgba(220,190,240,0.6);
+  border: 1px solid rgba(140,90,190,0.35);
+}
+
+.site-title {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: clamp(28px, 5.5vw, 54px);
+  color: #5a2a50;
+  line-height: 1.1;
+  text-shadow: 2px 2px 0 rgba(90,42,80,0.15);
+}
+.site-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 19px;
+  color: #8a3a1a;
+  margin-top: 5px;
+  display: block;
+  transform: rotate(0.6deg);
+}
+.header-deco {
+  font-size: 16px;
+  color: #9b84b8;
+  letter-spacing: 10px;
+  margin: 6px 0;
+  display: block;
+}
+
+/* ========== SHUFFLE AREA ========== */
+.shuffle-area {
+  text-align: center;
+  margin: 10px 0 36px;
+  position: relative;
+  z-index: 10;
+}
+
+.prompt-note {
+  display: inline-block;
+  position: relative;
+  transform: rotate(1.4deg);
+  background-color: #f8f0d8;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 21px, rgba(60,30,10,0.08) 21px, rgba(60,30,10,0.08) 22px);
+  padding: 12px 30px;
+  font-size: 17px;
+  color: #5a3020;
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.15);
+  border: 1px solid rgba(120,70,20,0.12);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 97% 90%, 94% 83%, 91% 90%, 88% 85%, 85% 92%, 82% 85%, 79% 91%, 76% 84%, 73% 90%, 70% 85%, 67% 91%, 64% 85%, 61% 90%, 58% 83%, 55% 90%, 52% 85%, 49% 92%, 46% 84%, 43% 90%, 40% 85%, 37% 91%, 34% 85%, 31% 90%, 28% 83%, 25% 90%, 22% 85%, 19% 90%, 16% 83%, 13% 90%, 10% 85%, 7% 91%, 4% 85%, 1% 91%, 0% 85%);
+  margin-bottom: 20px;
+}
+/* tape on prompt note */
+.prompt-note::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 50%; transform: translateX(-50%) rotate(-1.5deg);
+  width: 42px; height: 19px;
+  background: rgba(255,215,110,0.55);
+  border: 1px solid rgba(200,155,50,0.35);
+  border-radius: 1px;
+}
+
+.shuffle-btn {
+  display: inline-block;
+  position: relative;
+  background-color: #f5e8c8;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 23px, rgba(60,30,10,0.06) 23px, rgba(60,30,10,0.06) 24px);
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 22px;
+  color: #4a2848;
+  padding: 18px 50px 20px;
+  cursor: pointer;
+  border: none;
+  transform: rotate(-0.7deg);
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 5px 7px 0 rgba(0,0,0,0.22), 2px 3px 0 rgba(0,0,0,0.1);
+  outline: none;
+  /* rough edge */
+  clip-path: polygon(
+    1% 2%, 99% 0%, 100% 96%, 97% 100%, 94% 97%, 91% 100%, 88% 97%,
+    85% 100%, 82% 97%, 79% 100%, 76% 97%, 73% 100%, 70% 97%,
+    67% 100%, 64% 97%, 61% 100%, 58% 97%, 55% 100%, 52% 97%,
+    49% 100%, 46% 97%, 43% 100%, 40% 97%, 37% 100%, 34% 97%,
+    31% 100%, 28% 97%, 25% 100%, 22% 97%, 19% 100%, 16% 97%,
+    13% 100%, 10% 97%, 7% 100%, 4% 97%, 1% 100%
+  );
+}
+/* inner dashed border */
+.shuffle-btn::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed rgba(90,42,80,0.32);
+  pointer-events: none;
+}
+.shuffle-btn::before {
+  content: 'pull from the deck';
+  display: block;
+  font-size: 12px;
+  color: #8a4a2a;
+  font-family: 'Caveat', cursive;
+  margin-bottom: 1px;
+  letter-spacing: 1px;
+  opacity: 0.65;
+}
+.shuffle-btn:hover { transform: rotate(0.7deg) translateY(-4px); box-shadow: 7px 11px 0 rgba(0,0,0,0.22); }
+.shuffle-btn:active { transform: rotate(-0.2deg) translateY(2px); box-shadow: 3px 4px 0 rgba(0,0,0,0.22); }
+
+@keyframes messy-shuffle {
+  0%   { transform: rotate(-0.7deg) translateX(0); }
+  15%  { transform: rotate(-12deg) translateX(-25px) scale(0.97); }
+  35%  { transform: rotate(9deg)  translateX(22px) scale(1.02); }
+  55%  { transform: rotate(-7deg) translateX(-14px); }
+  75%  { transform: rotate(6deg)  translateX(14px); }
+  100% { transform: rotate(-0.7deg) translateX(0); }
+}
+.shuffling { animation: messy-shuffle 0.7s ease; }
+
+/* ========== BIG CARD REVEAL ========== */
+.reveal-area {
+  display: none;
+  text-align: center;
+  margin: 6px auto 46px;
+  position: relative;
+  z-index: 10;
+}
+.reveal-area.visible { display: block; }
+
+.big-card-wrap {
+  width: 275px;
+  height: 430px;
+  margin: 0 auto;
+  perspective: 1400px;
+  cursor: pointer;
+}
+.big-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.95s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.big-card-wrap.flipped .big-card-inner {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 6px;
+  clip-path: inset(0 round 6px);
+}
+
+/* Big card back */
+.big-back {
+  background: #1a1035;
+  border: 3px solid #c9a84c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 45px rgba(0,0,0,0.6);
+}
+/* Big card front */
+.big-front {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 16px 18px;
+  box-shadow: 0 14px 45px rgba(0,0,0,0.45);
+  position: relative;
+}
+/* washi tape on big front */
+.big-front .card-washi {
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 58px; height: 20px;
+  border-radius: 1px;
+  z-index: 10;
+}
+/* torn bottom on big front */
+.big-front::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 10px;
+  background: rgba(0,0,0,0.06);
+  clip-path: polygon(0 0,3% 100%,6% 20%,9% 100%,12% 10%,15% 100%,18% 20%,21% 100%,24% 10%,27% 100%,30% 20%,33% 100%,36% 10%,39% 100%,42% 20%,45% 100%,48% 10%,51% 100%,54% 20%,57% 100%,60% 10%,63% 100%,66% 20%,69% 100%,72% 10%,75% 100%,78% 20%,81% 100%,84% 10%,87% 100%,90% 20%,93% 100%,96% 10%,100% 0);
+  pointer-events: none;
+}
+
+.big-illo { width: 135px; height: 135px; flex-shrink: 0; margin-top: 6px; }
+.big-title {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 19px;
+  margin: 8px 0 4px;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+.big-affirmation {
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.big-num {
+  font-family: 'Kalam', cursive;
+  font-size: 10px;
+  opacity: 0.5;
+  letter-spacing: 3px;
+  margin-top: 6px;
+}
+
+/* hint text under big card */
+.flip-hint {
+  font-family: 'Caveat', cursive;
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 10px;
+  transform: rotate(-0.5deg);
+  display: block;
+}
+
+/* ========== DECK LABEL ========== */
+.deck-label-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+.deck-label {
+  display: inline-block;
+  position: relative;
+  background-color: #f5e8c8;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 26px, rgba(60,30,10,0.07) 26px, rgba(60,30,10,0.07) 27px);
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4a2848;
+  padding: 8px 32px 11px;
+  transform: rotate(-0.9deg);
+  box-shadow: 4px 6px 0 rgba(0,0,0,0.18);
+  clip-path: polygon(0% 2%, 100% 0%, 99% 90%, 97% 96%, 94% 90%, 91% 97%, 88% 90%, 85% 97%, 82% 90%, 79% 96%, 76% 90%, 73% 97%, 70% 90%, 67% 97%, 64% 90%, 61% 97%, 58% 90%, 55% 96%, 52% 90%, 49% 97%, 46% 90%, 43% 97%, 40% 90%, 37% 97%, 34% 90%, 31% 97%, 28% 90%, 25% 97%, 22% 90%, 19% 97%, 16% 90%, 13% 97%, 10% 90%, 7% 97%, 4% 90%, 1% 97%, 0% 90%);
+}
+.deck-label .tape-dl1, .deck-label .tape-dl2 {
+  position: absolute;
+  height: 18px;
+  border-radius: 1px;
+  top: -9px;
+}
+.deck-label .tape-dl1 { width: 48px; left: 12px; transform: rotate(-5deg); background: rgba(200,230,215,0.62); border: 1px solid rgba(90,165,145,0.4); }
+.deck-label .tape-dl2 { width: 44px; right: 10px; transform: rotate(4deg); background: rgba(255,200,200,0.6); border: 1px solid rgba(190,80,100,0.38); }
+
+/* ========== CARDS GRID ========== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px;
+  padding: 10px 4px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== MINI CARD - FLIPPABLE ===== */
+.mini-card {
+  aspect-ratio: 2/3.1;
+  position: relative;
+  cursor: pointer;
+  perspective: 900px;
+}
+/* random rotate via inline style */
+
+.mini-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.mini-card.flipped .mini-card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  clip-path: inset(0 round 5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 6px 10px;
+  box-shadow: 4px 6px 0 rgba(0,0,0,0.24), 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+/* MINI CARD BACK (dark, visible by default) */
+.mini-back {
+  /* dark scrapbook back */
+  background: #1a1035;
+  border: 2px solid #c9a84c;
+}
+.mini-back-pattern {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.mini-back-deco {
+  font-size: 18px;
+  opacity: 0.6;
+}
+.mini-back-num {
+  font-family: 'Kalam', cursive;
+  font-size: 9px;
+  color: #c9a84c;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+/* MINI CARD FRONT (texture, hidden until flip) */
+.mini-front {
+  transform: rotateY(180deg);
+  position: relative;
+}
+/* washi tape on mini front */
+.mini-front .m-washi {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  height: 17px;
+  border-radius: 1px;
+  z-index: 5;
+}
+/* torn edge on mini front bottom */
+.mini-front::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 7px;
+  background: rgba(0,0,0,0.08);
+  clip-path: polygon(0 0,5% 100%,10% 0,15% 100%,20% 0,25% 100%,30% 0,35% 100%,40% 0,45% 100%,50% 0,55% 100%,60% 0,65% 100%,70% 0,75% 100%,80% 0,85% 100%,90% 0,95% 100%,100% 0);
+  pointer-events: none;
+}
+/* scrapbook sticker element on some cards - top-left corner */
+.mini-front .corner-sticker {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 1;
+  z-index: 4;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+}
+
+.m-illo { width: 60px; height: 60px; flex-shrink: 0; margin-top: 14px; }
+.m-title {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 9px;
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+.m-snippet {
+  font-family: 'Caveat', cursive;
+  font-size: 8.5px;
+  text-align: center;
+  line-height: 1.4;
+  opacity: 0.88;
+  padding: 0 3px 2px;
+  overflow: hidden;
+}
+
+/* hover lift */
+.mini-card:hover .mini-card-inner {
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+}
+
+/* ========== TOAST ========== */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(130px);
+  background-color: #f5e8c8;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 22px, rgba(60,30,10,0.07) 22px, rgba(60,30,10,0.07) 23px);
+  color: #4a2848;
+  font-family: 'Kalam', cursive;
+  font-size: 16px;
+  padding: 12px 28px;
+  box-shadow: 4px 6px 0 rgba(0,0,0,0.2);
+  transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 200;
+  border: 2px dashed rgba(140,60,80,0.42);
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0) rotate(-1.2deg); }
+</style>
+</head>
+<body>
+
+<!-- ========== BG DOODLE LAYER ========== -->
+<div class="bg-layer">
+<svg width="100%" height="100%" viewBox="0 0 1400 1000" preserveAspectRatio="xMidYMid slice" style="opacity:0.52">
+  <!-- Stars -->
+  <path d="M70,55 L74,68 L87,68 L77,77 L81,90 L70,82 L59,90 L63,77 L53,68 L66,68 Z" fill="#ffd700" stroke="#c8a800" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M1310,70 L1313,80 L1323,80 L1315,87 L1318,97 L1310,91 L1302,97 L1305,87 L1297,80 L1307,80 Z" fill="none" stroke="#c8a800" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M1330,380 L1336,398 L1354,398 L1340,410 L1345,428 L1330,418 L1315,428 L1320,410 L1306,398 L1324,398 Z" fill="#ffd700" stroke="#c8a800" stroke-width="2"/>
+  <path d="M100,850 L104,864 L118,864 L107,873 L111,887 L100,879 L89,887 L93,873 L82,864 L96,864 Z" fill="#ffd700" stroke="#b89000" stroke-width="1.8"/>
+  <path d="M50,420 L53,430 L63,430 L55,437 L58,447 L50,441 L42,447 L45,437 L37,430 L47,430 Z" fill="none" stroke="#e8859a" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M700,920 L702,928 L710,928 L704,933 L706,941 L700,937 L694,941 L696,933 L690,928 L698,928 Z" fill="none" stroke="#9b84b8" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Sparkle crosses -->
+  <path d="M280,85 L282,100 M275,92 L289,92 M276,88 L288,96 M288,88 L276,96" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M1060,150 L1062,165 M1055,157 L1069,157 M1056,153 L1068,161 M1068,153 L1056,161" stroke="#e8859a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M180,680 L182,694 M175,687 L189,687 M176,683 L188,691 M188,683 L176,691" stroke="#9b84b8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M1200,600 L1202,614 M1195,607 L1209,607 M1196,603 L1208,611 M1208,603 L1196,611" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/>
+  <path d="M560,30 L562,44 M555,37 L569,37 M556,33 L568,41 M568,33 L556,41" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Rhinestone sparkles -->
+  <circle cx="350" cy="120" r="5" fill="none" stroke="#b0c8e0" stroke-width="2"/>
+  <path d="M350,112 L350,128 M342,120 L358,120" stroke="#b0c8e0" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="1100" cy="450" r="4" fill="none" stroke="#b0c8e0" stroke-width="2"/>
+  <path d="M1100,443 L1100,457 M1093,450 L1107,450" stroke="#b0c8e0" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="220" cy="300" r="5" fill="none" stroke="#d8c8f0" stroke-width="2"/>
+  <path d="M220,292 L220,308 M212,300 L228,300" stroke="#d8c8f0" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="1350" cy="700" r="6" fill="none" stroke="#b0c8e0" stroke-width="2.2"/>
+  <path d="M1350,691 L1350,709 M1341,700 L1359,700" stroke="#b0c8e0" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Moon face top-right -->
+  <path d="M1180,80 Q1215,65 1228,95 Q1237,120 1218,138 Q1195,145 1178,130 Q1160,112 1170,92 Q1172,85 1180,80 Z" fill="#f5e8a8" stroke="#c8a830" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="1192" cy="104" r="3" fill="#8a7030"/>
+  <circle cx="1208" cy="98" r="2.2" fill="#8a7030"/>
+  <path d="M1188,115 Q1200,122 1212,114" fill="none" stroke="#8a7030" stroke-width="2" stroke-linecap="round"/>
+  <!-- Mushroom bottom-left -->
+  <path d="M95,740 Q94,700 120,694 Q148,688 165,700 Q182,712 180,740 Z" fill="#cc4444" stroke="#8a1818" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="115" cy="710" r="5.5" fill="white" stroke="#8a1818" stroke-width="1.5"/>
+  <circle cx="136" cy="704" r="4" fill="white" stroke="#8a1818" stroke-width="1.5"/>
+  <circle cx="155" cy="710" r="5" fill="white" stroke="#8a1818" stroke-width="1.5"/>
+  <rect x="125" y="740" width="16" height="22" rx="4" fill="#e8c898" stroke="#8a5a28" stroke-width="2"/>
+  <path d="M108,762 Q110,754 113,762 M118,762 Q119,751 122,762 M128,762 Q130,753 133,762" fill="none" stroke="#558844" stroke-width="2" stroke-linecap="round"/>
+  <!-- Frog top-right -->
+  <ellipse cx="1280" cy="220" rx="28" ry="22" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/>
+  <ellipse cx="1263" cy="205" rx="11" ry="10" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/>
+  <ellipse cx="1297" cy="205" rx="11" ry="10" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/>
+  <circle cx="1263" cy="203" r="5.5" fill="white" stroke="#28681a" stroke-width="1.5"/>
+  <circle cx="1297" cy="203" r="5.5" fill="white" stroke="#28681a" stroke-width="1.5"/>
+  <circle cx="1264" cy="203" r="2.8" fill="#1a0808"/><circle cx="1298" cy="203" r="2.8" fill="#1a0808"/>
+  <path d="M1268,218 Q1280,226 1292,218" fill="none" stroke="#28681a" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Butterfly mid-left -->
+  <path d="M60,530 Q40,508 48,492 Q56,476 68,486 Q76,494 70,530 Z" fill="#e8b0d0" stroke="#8a3068" stroke-width="2"/>
+  <path d="M70,530 Q80,508 72,490 Q64,472 54,482 Q46,492 70,530 Z" fill="#f0c8e0" stroke="#8a3068" stroke-width="2"/>
+  <path d="M60,538 Q42,554 46,566 Q50,578 62,572 Q70,564 70,538 Z" fill="#d890c0" stroke="#8a3068" stroke-width="1.8"/>
+  <path d="M70,538 Q78,554 74,566 Q70,578 62,572 Q55,564 70,538 Z" fill="#e0a0cc" stroke="#8a3068" stroke-width="1.8"/>
+  <line x1="70" y1="488" x2="70" y2="580" stroke="#5a1840" stroke-width="2" stroke-linecap="round"/>
+  <!-- Ribbon -->
+  <path d="M300,935 Q340,922 380,938 Q420,954 460,940 Q500,926 540,942 Q580,958 620,944 Q660,930 700,946" fill="none" stroke="#9b84b8" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Flower bottom-right -->
+  <circle cx="1280" cy="860" r="14" fill="#f5c832" stroke="#c89810" stroke-width="2"/>
+  <ellipse cx="1280" cy="835" rx="9" ry="14" fill="#e8859a" stroke="#c04060" stroke-width="1.8"/>
+  <ellipse cx="1305" cy="843" rx="14" ry="9" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(30,1305,843)"/>
+  <ellipse cx="1302" cy="871" rx="14" ry="9" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(-30,1302,871)"/>
+  <ellipse cx="1280" cy="885" rx="9" ry="14" fill="#e8859a" stroke="#c04060" stroke-width="1.8"/>
+  <ellipse cx="1255" cy="871" rx="14" ry="9" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(30,1255,871)"/>
+  <ellipse cx="1258" cy="843" rx="14" ry="9" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(-30,1258,843)"/>
+  <circle cx="1280" cy="860" r="10" fill="#f5c832" stroke="#c89810" stroke-width="2"/>
+  <!-- Coffee rings -->
+  <circle cx="240" cy="180" r="42" fill="none" stroke="rgba(80,40,10,0.14)" stroke-width="4"/>
+  <circle cx="240" cy="180" r="38" fill="none" stroke="rgba(80,40,10,0.07)" stroke-width="2"/>
+  <circle cx="1100" cy="780" r="34" fill="none" stroke="rgba(80,40,10,0.12)" stroke-width="3.5"/>
+  <!-- Vine right edge -->
+  <path d="M1380,300 Q1390,320 1375,340 Q1360,360 1380,380 Q1395,400 1378,420" fill="none" stroke="#558844" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M1380,340 Q1400,338 1402,326" fill="none" stroke="#558844" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Hearts -->
+  <path d="M470,80 Q470,72 478,72 Q486,72 486,80 Q486,88 470,96 Q454,88 454,80 Q454,72 462,72 Q470,72 470,80 Z" fill="none" stroke="#e8859a" stroke-width="2"/>
+  <path d="M930,920 Q930,913 937,913 Q944,913 944,920 Q944,928 930,935 Q916,928 916,920 Q916,913 923,913 Q930,913 930,920 Z" fill="#e8859a" stroke="#c04060" stroke-width="1.5" opacity="0.7"/>
+  <!-- Words -->
+  <text x="950" y="40"  font-family="'Kalam',cursive" font-size="18" fill="rgba(90,42,80,0.45)" transform="rotate(-8,950,40)">whimsy!</text>
+  <text x="30"  y="200" font-family="'Kalam',cursive" font-size="16" fill="rgba(80,40,10,0.38)" transform="rotate(5,30,200)">be silly ♡</text>
+  <text x="1180" y="540" font-family="'Kalam',cursive" font-size="15" fill="rgba(30,80,80,0.42)" transform="rotate(-12,1180,540)">magic ✦</text>
+</svg>
+</div>
+
+<!-- ========== MAIN ========== -->
+<div class="desk">
+<div class="content">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-paper">
+      <div class="tape-h1"></div>
+      <div class="tape-h2"></div>
+      <div class="tape-h3"></div>
+      <span class="header-deco">✦ ☽ ✦</span>
+      <div class="site-title">The Whimsy Deck</div>
+      <div class="site-subtitle">30 cards for your magical inner child 🌙</div>
+      <span class="header-deco" style="margin-top:4px">✨ · 🍄 · ✨</span>
+    </div>
+  </div>
+
+  <!-- SHUFFLE -->
+  <div class="shuffle-area">
+    <div class="prompt-note">
+      close your eyes · breathe · let a card find you 🍄
+    </div>
+    <br>
+    <button class="shuffle-btn" id="shuffleBtn" onclick="drawCard()">
+      ✨ Shuffle &amp; Draw a Card ✨
+    </button>
+  </div>
+
+  <!-- BIG CARD REVEAL -->
+  <div class="reveal-area" id="revealArea">
+    <div class="big-card-wrap" id="bigCardWrap" onclick="toggleBigFlip()" title="click to flip">
+      <div class="big-card-inner" id="bigCardInner">
+        <div class="card-face big-back" id="bigBack">
+          <!-- SVG back design -->
+          <svg width="84%" height="84%" viewBox="0 0 220 320">
+            <rect x="5" y="5" width="210" height="310" rx="4" fill="none" stroke="#c9a84c" stroke-width="2"/>
+            <rect x="12" y="12" width="196" height="296" rx="3" fill="none" stroke="#c9a84c" stroke-width="1" stroke-dasharray="4,3"/>
+            <path d="M130,120 Q165,100 175,135 Q182,162 162,178 Q138,185 120,168 Q102,148 115,128 Q120,120 130,120 Z" fill="#f5e8a8" stroke="#c8a830" stroke-width="2.5"/>
+            <circle cx="138" cy="148" r="4" fill="#5a4010"/><circle cx="152" cy="142" r="3" fill="#5a4010"/>
+            <path d="M135,158 Q145,165 155,157" fill="none" stroke="#5a4010" stroke-width="2" stroke-linecap="round"/>
+            <path d="M30,30 L33,40 L43,40 L35,47 L38,57 L30,51 L22,57 L25,47 L17,40 L27,40 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M190,30 L193,40 L203,40 L195,47 L198,57 L190,51 L182,57 L185,47 L177,40 L187,40 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M30,290 L33,280 L43,280 L35,273 L38,263 L30,269 L22,263 L25,273 L17,280 L27,280 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M190,290 L193,280 L203,280 L195,273 L198,263 L190,269 L182,263 L185,273 L177,280 L187,280 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M110,65 L112,76 M105,70 L119,70 M106,67 L118,73 M118,67 L106,73" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M165,230 L167,241 M160,235 L174,235 M161,232 L173,238 M173,232 L161,238" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M20,160 Q35,145 30,130 Q28,118 20,120" fill="none" stroke="#7a9e6e" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M30,130 Q42,126 44,118" fill="none" stroke="#7a9e6e" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="110" y="270" text-anchor="middle" font-family="'Kalam',cursive" font-size="13" fill="#c9a84c">The Whimsy Deck</text>
+          </svg>
+        </div>
+        <div class="card-face big-front" id="bigFront">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </div>
+    <span class="flip-hint">↩ click card to flip front &amp; back</span>
+  </div>
+
+  <!-- DECK GRID -->
+  <div class="deck-label-wrap">
+    <div class="deck-label">
+      <span class="tape-dl1"></span>
+      <span class="tape-dl2"></span>
+      🌸 the full deck · click any card to flip 🌸
+    </div>
+  </div>
+  <div class="cards-grid" id="cardsGrid"></div>
+
+</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// =============================================
+// HAND-DRAWN SVG ILLUSTRATIONS
+// =============================================
+const illos = {
+  moon: () => `<svg viewBox="0 0 100 100"><path d="M68,18 Q95,25 98,52 Q100,75 82,88 Q65,98 46,90 Q28,82 22,64 Q16,46 26,32 Q36,18 52,16 Q58,15 68,18 Z M58,22 Q78,28 80,52 Q82,72 66,82 Q50,90 35,80 Q22,70 24,52 Q26,34 44,26 Q52,22 58,22 Z" fill="#f5e8a8" stroke="#c8a830" stroke-width="2.5" stroke-linejoin="round"/><circle cx="52" cy="44" r="4" fill="#5a4010"/><circle cx="64" cy="38" r="3" fill="#5a4010"/><path d="M48,56 Q56,63 64,56" fill="none" stroke="#5a4010" stroke-width="2.2" stroke-linecap="round"/><path d="M38,32 L40,42 M34,37 L44,37" stroke="#c8a830" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+
+  frog: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="30" ry="24" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/><ellipse cx="35" cy="44" rx="12" ry="11" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/><ellipse cx="65" cy="44" rx="12" ry="11" fill="#5aaa4a" stroke="#28681a" stroke-width="2.5"/><circle cx="35" cy="42" r="6" fill="white" stroke="#28681a" stroke-width="1.8"/><circle cx="65" cy="42" r="6" fill="white" stroke="#28681a" stroke-width="1.8"/><circle cx="36" cy="42" r="3" fill="#180808"/><circle cx="66" cy="42" r="3" fill="#180808"/><path d="M42,58 Q50,65 58,58" fill="none" stroke="#28681a" stroke-width="2.2" stroke-linecap="round"/><path d="M46,30 L50,8 L54,30 Z" fill="#7a50c0" stroke="#3a1860" stroke-width="2"/><path d="M42,30 Q50,34 58,30" fill="#6040a8" stroke="#3a1860" stroke-width="1.8"/><circle cx="50" cy="16" r="2" fill="#ffd700"/><path d="M28,82 Q20,90 14,95" fill="none" stroke="#28681a" stroke-width="2.5" stroke-linecap="round"/><path d="M72,82 Q80,90 86,95" fill="none" stroke="#28681a" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+
+  mushroom: () => `<svg viewBox="0 0 100 100"><path d="M50,55 Q14,55 12,35 Q10,12 50,10 Q90,10 88,35 Q86,55 50,55 Z" fill="#cc4444" stroke="#8a1818" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="30" cy="30" r="7" fill="white" stroke="#8a1818" stroke-width="1.5"/><ellipse cx="50" cy="20" r="6" fill="white" stroke="#8a1818" stroke-width="1.5"/><ellipse cx="68" cy="29" r="7" fill="white" stroke="#8a1818" stroke-width="1.5"/><ellipse cx="40" cy="46" r="4.5" fill="white" stroke="#8a1818" stroke-width="1.5"/><ellipse cx="60" cy="46" r="4.5" fill="white" stroke="#8a1818" stroke-width="1.5"/><rect x="40" y="55" width="20" height="30" rx="4" fill="#e8c898" stroke="#8a5a28" stroke-width="2.2"/><path d="M35,60 Q50,65 65,60" fill="#e8c898" stroke="#8a5a28" stroke-width="1.8"/><path d="M36,80 Q38,72 41,80 M44,80 Q46,70 49,80 M53,80 Q55,70 58,80 M61,80 Q63,72 65,80" fill="none" stroke="#558844" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+
+  butterfly: () => `<svg viewBox="0 0 100 100"><path d="M50,50 Q28,30 30,14 Q32,4 44,8 Q54,12 50,50 Z" fill="#e8b0d0" stroke="#8a3068" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q72,30 70,14 Q68,4 56,8 Q46,12 50,50 Z" fill="#f0c8e0" stroke="#8a3068" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q32,65 36,80 Q40,90 50,86 Q58,82 50,50 Z" fill="#d890c0" stroke="#8a3068" stroke-width="1.8" stroke-linejoin="round"/><path d="M50,50 Q68,65 64,80 Q60,90 50,86 Q42,82 50,50 Z" fill="#e0a0cc" stroke="#8a3068" stroke-width="1.8" stroke-linejoin="round"/><ellipse cx="50" cy="50" rx="4" ry="22" fill="#3a1040" stroke="#8a3068" stroke-width="1.5"/><path d="M50,30 Q40,18 34,12 M50,30 Q60,18 66,12" fill="none" stroke="#3a1040" stroke-width="1.8" stroke-linecap="round"/><circle cx="34" cy="10" r="2.5" fill="#3a1040"/><circle cx="66" cy="10" r="2.5" fill="#3a1040"/></svg>`,
+
+  flower: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="28" rx="10" ry="16" fill="#e8859a" stroke="#c04060" stroke-width="2"/><ellipse cx="50" cy="72" rx="10" ry="16" fill="#e8859a" stroke="#c04060" stroke-width="2"/><ellipse cx="28" cy="50" rx="16" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="2"/><ellipse cx="72" cy="50" rx="16" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="2"/><ellipse cx="35" cy="35" rx="11" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(45,35,35)"/><ellipse cx="65" cy="35" rx="11" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(-45,65,35)"/><ellipse cx="35" cy="65" rx="11" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(-45,35,65)"/><ellipse cx="65" cy="65" rx="11" ry="10" fill="#e8859a" stroke="#c04060" stroke-width="1.8" transform="rotate(45,65,65)"/><circle cx="50" cy="50" r="15" fill="#f5c832" stroke="#c89810" stroke-width="2.5"/><circle cx="44" cy="46" r="2" fill="#c89810" opacity="0.6"/><circle cx="52" cy="44" r="2" fill="#c89810" opacity="0.6"/><circle cx="57" cy="50" r="2" fill="#c89810" opacity="0.6"/><circle cx="48" cy="55" r="2" fill="#c89810" opacity="0.6"/></svg>`,
+
+  star: () => `<svg viewBox="0 0 100 100"><path d="M50,8 L56,34 L82,34 L61,50 L68,76 L50,61 L32,76 L39,50 L18,34 L44,34 Z" fill="#ffd700" stroke="#c8a000" stroke-width="2.5" stroke-linejoin="round"/><path d="M22,18 L24,26 M18,22 L28,22" stroke="#c8a000" stroke-width="2" stroke-linecap="round"/><path d="M76,72 L78,80 M72,76 L82,76" stroke="#c8a000" stroke-width="2" stroke-linecap="round"/><path d="M82,25 L84,33 M78,29 L88,29" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/></svg>`,
+
+  shell: () => `<svg viewBox="0 0 100 100"><path d="M50,85 Q20,80 14,58 Q8,36 26,22 Q44,8 62,16 Q80,24 84,46 Q88,68 72,78 Q62,84 50,85 Z" fill="#f5d8a0" stroke="#b8822a" stroke-width="2.5" stroke-linejoin="round"/><path d="M50,85 Q42,70 38,52 Q34,34 42,22" fill="none" stroke="#b8822a" stroke-width="2" stroke-linecap="round"/><path d="M50,85 Q52,68 56,50 Q60,32 54,20" fill="none" stroke="#b8822a" stroke-width="1.8" stroke-linecap="round"/><path d="M50,85 Q36,76 28,62 Q20,48 26,34" fill="none" stroke="#b8822a" stroke-width="1.5" stroke-linecap="round"/><path d="M50,85 Q65,75 72,60 Q78,45 70,30" fill="none" stroke="#b8822a" stroke-width="1.5" stroke-linecap="round"/><circle cx="50" cy="85" r="5" fill="#e8c070" stroke="#b8822a" stroke-width="2"/></svg>`,
+
+  goose: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="68" rx="28" ry="22" fill="#f0f0f0" stroke="#888" stroke-width="2.5"/><path d="M50,48 Q58,22 64,14 Q66,8 62,10 Q48,14 44,24 Q40,34 42,48" fill="#f0f0f0" stroke="#888" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="64" cy="12" rx="8" ry="6" fill="#f0f0f0" stroke="#888" stroke-width="2.2"/><path d="M70,12 L80,10 Q82,12 80,14 L70,14 Z" fill="#e85820" stroke="#e85820" stroke-width="1"/><circle cx="68" cy="10" r="2.5" fill="#1a1a1a"/><circle cx="68.8" cy="9.2" r="0.8" fill="white"/><path d="M30,58 Q18,52 12,60 Q10,68 16,72 Q22,74 30,68" fill="#f0f0f0" stroke="#888" stroke-width="2"/><path d="M70,62 Q82,56 88,64 Q90,72 84,76 Q78,78 70,72" fill="#f0f0f0" stroke="#888" stroke-width="2"/><path d="M36,88 L30,96 Q28,100 34,100 Q40,98 38,90" fill="#e85820" stroke="#c04010" stroke-width="1.8"/><path d="M56,90 L60,98 Q62,102 56,101 Q50,99 52,91" fill="#e85820" stroke="#c04010" stroke-width="1.8"/><ellipse cx="64" cy="12" rx="5" ry="4" fill="#90c050" stroke="#508030" stroke-width="1.5" transform="rotate(-15,64,12)"/></svg>`,
+
+  castle: () => `<svg viewBox="0 0 100 100"><rect x="22" y="52" width="56" height="40" rx="2" fill="#c0c0c0" stroke="#888" stroke-width="2"/><path d="M22,52 L22,40 L28,40 L28,48 L34,48 L34,40 L40,40 L40,52 Z" fill="#c0c0c0" stroke="#888" stroke-width="2" stroke-linejoin="round"/><path d="M60,52 L60,40 L66,40 L66,48 L72,48 L72,40 L78,40 L78,52 Z" fill="#c0c0c0" stroke="#888" stroke-width="2" stroke-linejoin="round"/><rect x="38" y="58" width="24" height="34" rx="12" fill="#7a5a3a" stroke="#888" stroke-width="2"/><rect x="44" y="36" width="12" height="22" rx="2" fill="#c0c0c0" stroke="#888" stroke-width="2"/><path d="M44,36 L50,22 L56,36 Z" fill="#888" stroke="#888" stroke-width="1"/><line x1="50" y1="22" x2="50" y2="14" stroke="#888" stroke-width="2"/><path d="M46,15 Q50,12 54,15" fill="#e8859a" stroke="#c04060" stroke-width="1.5"/><rect x="25" y="60" width="8" height="8" rx="1" fill="#7a9e8e" stroke="#888" stroke-width="1.5"/><rect x="67" y="60" width="8" height="8" rx="1" fill="#7a9e8e" stroke="#888" stroke-width="1.5"/><path d="M18,92 Q22,85 28,82 Q22,80 18,78" fill="none" stroke="#558844" stroke-width="2.5" stroke-linecap="round"/><path d="M82,92 Q78,85 72,82 Q78,80 82,78" fill="none" stroke="#558844" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+
+  leafFairy: () => `<svg viewBox="0 0 100 100"><path d="M50,88 Q18,72 16,44 Q14,20 36,14 Q58,8 66,28 Q76,50 50,88 Z" fill="#7ab858" stroke="#3a6828" stroke-width="2.5" stroke-linejoin="round"/><path d="M50,88 L50,14" fill="none" stroke="#3a6828" stroke-width="1.8" stroke-linecap="round"/><path d="M50,72 Q38,62 32,50" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,60 Q40,50 36,38" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,48 Q58,42 62,30" fill="none" stroke="#3a6828" stroke-width="1.4" stroke-linecap="round"/><path d="M50,30 Q30,18 24,28 Q20,38 34,38 Q42,38 50,30 Z" fill="rgba(220,240,255,0.5)" stroke="rgba(100,150,200,0.6)" stroke-width="1.5"/><path d="M50,30 Q70,18 76,28 Q80,38 66,38 Q58,38 50,30 Z" fill="rgba(220,240,255,0.5)" stroke="rgba(100,150,200,0.6)" stroke-width="1.5"/><circle cx="50" cy="28" r="5" fill="#f5d8b0" stroke="#c89870" stroke-width="1.5"/><path d="M30,14 L32,22 M26,18 L36,18" stroke="#ffd700" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+
+  sunflower: () => `<svg viewBox="0 0 100 100"><line x1="50" y1="95" x2="50" y2="55" stroke="#558844" stroke-width="3.5" stroke-linecap="round"/><path d="M50,75 Q35,68 28,74" fill="none" stroke="#558844" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(45,50,47)"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(90,50,47)"/><ellipse cx="50" cy="47" rx="10" ry="15" fill="#f5c832" stroke="#c89810" stroke-width="2" transform="rotate(135,50,47)"/><circle cx="50" cy="47" r="15" fill="#8a4818" stroke="#5a2808" stroke-width="2.5"/><circle cx="44" cy="43" r="2" fill="#5a2808"/><circle cx="51" cy="41" r="2" fill="#5a2808"/><circle cx="56" cy="46" r="2" fill="#5a2808"/><circle cx="46" cy="53" r="2" fill="#5a2808"/></svg>`,
+
+  hedgehog: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="72" rx="32" ry="18" fill="#c89860" stroke="#8a5820" stroke-width="2.5"/><path d="M30,72 Q28,55 38,48 Q50,42 62,48 Q72,55 70,72 Z" fill="#8a5820" stroke="#8a5820" stroke-width="1.5"/><path d="M38,48 L32,36 M42,44 L38,30 M48,42 L46,28 M54,42 L54,28 M60,44 L64,30 M64,48 L70,36" stroke="#8a5820" stroke-width="2" stroke-linecap="round"/><ellipse cx="35" cy="70" rx="12" ry="10" fill="#e8c898" stroke="#8a5820" stroke-width="2"/><circle cx="32" cy="67" r="3" fill="white" stroke="#8a5820" stroke-width="1.5"/><circle cx="32.5" cy="67" r="1.5" fill="#180808"/><ellipse cx="36" cy="73" rx="5" ry="3" fill="#c85878" stroke="#8a2848" stroke-width="1"/></svg>`,
+
+  wormApple: () => `<svg viewBox="0 0 100 100"><path d="M50,20 Q80,20 84,50 Q88,75 66,88 Q50,95 34,88 Q12,75 16,50 Q20,20 50,20 Z" fill="#cc2828" stroke="#8a1010" stroke-width="2.5" stroke-linejoin="round"/><path d="M50,20 Q55,8 58,10 Q60,14 55,18" fill="none" stroke="#3a2808" stroke-width="2" stroke-linecap="round"/><path d="M58,10 Q62,4 68,6" fill="none" stroke="#558844" stroke-width="2" stroke-linecap="round"/><path d="M58,55 Q60,42 68,40 Q76,44 74,56 Q72,65 62,70 Q52,68 52,58 Q54,52 58,55 Z" fill="#88b838" stroke="#4a6818" stroke-width="2" stroke-linejoin="round"/><circle cx="64" cy="50" r="3.5" fill="white" stroke="#4a6818" stroke-width="1.5"/><circle cx="64.5" cy="50" r="1.8" fill="#180808"/><path d="M60,58 Q64,62 68,58" fill="none" stroke="#4a6818" stroke-width="1.8" stroke-linecap="round"/><path d="M58,55 Q48,50 44,56 Q42,62 52,64" fill="#88b838" stroke="#4a6818" stroke-width="1.8"/></svg>`,
+
+  web: () => `<svg viewBox="0 0 100 100"><line x1="50" y1="10" x2="50" y2="90" stroke="#888060" stroke-width="1.5"/><line x1="10" y1="50" x2="90" y2="50" stroke="#888060" stroke-width="1.5"/><line x1="22" y1="22" x2="78" y2="78" stroke="#888060" stroke-width="1.5"/><line x1="78" y1="22" x2="22" y2="78" stroke="#888060" stroke-width="1.5"/><path d="M50,24 Q62,26 66,38 Q68,50 62,60 Q56,68 50,66 Q44,64 38,56 Q32,48 34,36 Q38,24 50,24 Z" fill="none" stroke="#888060" stroke-width="1.5"/><path d="M50,38 Q57,39 59,47 Q60,55 55,59 Q50,62 45,58 Q40,54 41,46 Q43,38 50,38 Z" fill="none" stroke="#888060" stroke-width="1.5"/><circle cx="50" cy="52" r="5" fill="#2a2010" stroke="#888060" stroke-width="1.8"/><path d="M48,52 L44,46 M52,52 L56,46 M50,47 L50,40" fill="none" stroke="#2a2010" stroke-width="1.2" stroke-linecap="round"/></svg>`,
+
+  rainbow: () => `<svg viewBox="0 0 100 100"><path d="M8,75 Q8,25 50,25 Q92,25 92,75" fill="none" stroke="#e84444" stroke-width="7" stroke-linecap="round"/><path d="M15,75 Q15,33 50,33 Q85,33 85,75" fill="none" stroke="#e89020" stroke-width="7" stroke-linecap="round"/><path d="M22,75 Q22,40 50,40 Q78,40 78,75" fill="none" stroke="#e8d028" stroke-width="7" stroke-linecap="round"/><path d="M29,75 Q29,47 50,47 Q71,47 71,75" fill="none" stroke="#50b840" stroke-width="6" stroke-linecap="round"/><path d="M36,75 Q36,54 50,54 Q64,54 64,75" fill="none" stroke="#4478e8" stroke-width="5" stroke-linecap="round"/><path d="M42,75 Q42,60 50,60 Q58,60 58,75" fill="none" stroke="#8848c8" stroke-width="5" stroke-linecap="round"/><path d="M4,78 Q10,92 18,90 Q12,84 4,78 Z" fill="#e0e0e0" stroke="#b8b8b8" stroke-width="1.5"/><path d="M96,78 Q90,92 82,90 Q88,84 96,78 Z" fill="#e0e0e0" stroke="#b8b8b8" stroke-width="1.5"/></svg>`,
+
+  caterpillar: () => `<svg viewBox="0 0 100 100"><circle cx="16" cy="62" r="12" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="36" cy="58" r="13" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="57" cy="56" r="13" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="78" cy="54" r="13" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="84" cy="40" r="12" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="78" cy="29" r="10" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><circle cx="74" cy="26" r="3.5" fill="white" stroke="#3a6818" stroke-width="1.5"/><circle cx="74.5" cy="26" r="1.8" fill="#180808"/><path d="M72,33 Q76,36 80,33" fill="none" stroke="#3a6818" stroke-width="1.8" stroke-linecap="round"/><path d="M75,20 Q72,12 68,8" fill="none" stroke="#3a6818" stroke-width="2" stroke-linecap="round"/><path d="M81,19 Q82,10 86,7" fill="none" stroke="#3a6818" stroke-width="2" stroke-linecap="round"/><circle cx="67" cy="7" r="3" fill="#e8859a" stroke="#3a6818" stroke-width="1.5"/><circle cx="87" cy="6" r="3" fill="#e8859a" stroke="#3a6818" stroke-width="1.5"/></svg>`,
+
+  dove: () => `<svg viewBox="0 0 100 100"><path d="M50,55 Q18,50 12,36 Q8,24 20,20 Q34,16 46,26 Q52,32 50,55 Z" fill="#f0f0f0" stroke="#a0a0a0" stroke-width="2.5" stroke-linejoin="round"/><path d="M50,55 Q82,50 88,36 Q92,24 80,20 Q66,16 54,26 Q48,32 50,55 Z" fill="#f0f0f0" stroke="#a0a0a0" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="60" rx="16" ry="22" fill="#f0f0f0" stroke="#a0a0a0" stroke-width="2.5"/><circle cx="50" cy="36" r="11" fill="#f0f0f0" stroke="#a0a0a0" stroke-width="2.5"/><circle cx="46" cy="33" r="3" fill="white" stroke="#a0a0a0" stroke-width="1.5"/><circle cx="46.5" cy="33" r="1.5" fill="#180808"/><path d="M56,36 L64,34 Q66,36 64,38 L56,38 Z" fill="#f0b040" stroke="#b07820" stroke-width="1.2"/><path d="M36,96 Q30,88 22,88 Q16,90 18,96" fill="none" stroke="#558844" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="18" cy="79" rx="5" ry="3" fill="#7ab848" stroke="#3a6818" stroke-width="1.5" transform="rotate(-10,18,79)"/></svg>`,
+
+  cactus: () => `<svg viewBox="0 0 100 100"><rect x="40" y="30" width="20" height="60" rx="10" fill="#78b838" stroke="#3a6818" stroke-width="2.5"/><path d="M40,56 Q28,56 26,46 Q24,36 32,34 Q38,32 40,42" fill="#78b838" stroke="#3a6818" stroke-width="2.5" stroke-linejoin="round"/><path d="M60,50 Q72,50 74,40 Q76,30 68,28 Q62,26 60,36" fill="#78b838" stroke="#3a6818" stroke-width="2.5" stroke-linejoin="round"/><path d="M44,38 L40,34 M44,48 L40,46 M44,58 L40,56 M44,68 L40,66 M44,78 L40,74" stroke="#3a6818" stroke-width="1.5" stroke-linecap="round"/><path d="M56,38 L60,34 M56,48 L60,46 M56,58 L60,56 M56,68 L60,66" stroke="#3a6818" stroke-width="1.5" stroke-linecap="round"/><circle cx="50" cy="28" r="8" fill="#e8859a" stroke="#c04060" stroke-width="2"/><circle cx="50" cy="28" r="4" fill="#ffd700" stroke="#c8a000" stroke-width="1.5"/></svg>`,
+
+  fox: () => `<svg viewBox="0 0 100 100"><path d="M50,85 Q22,85 18,65 Q14,45 28,35 Q32,32 38,30 Q28,18 22,8 Q34,12 40,24 Q44,20 50,18 Q56,20 60,24 Q66,12 78,8 Q72,18 62,30 Q68,32 72,35 Q86,45 82,65 Q78,85 50,85 Z" fill="#e87828" stroke="#a84810" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="62" rx="16" ry="14" fill="#f5d8a0" stroke="#a84810" stroke-width="1.8"/><ellipse cx="40" cy="48" rx="6" ry="7" fill="white" stroke="#a84810" stroke-width="2"/><ellipse cx="60" cy="48" rx="6" ry="7" fill="white" stroke="#a84810" stroke-width="2"/><ellipse cx="40" cy="49" rx="3" ry="4" fill="#1a0808"/><ellipse cx="60" cy="49" rx="3" ry="4" fill="#1a0808"/><circle cx="41" cy="47" r="1.5" fill="white"/><circle cx="61" cy="47" r="1.5" fill="white"/><ellipse cx="50" cy="62" rx="4" ry="3" fill="#3a1010" stroke="#a84810" stroke-width="1"/><path d="M50,65 L46,70 M50,65 L54,70" fill="none" stroke="#a84810" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+
+  shootingStar: () => `<svg viewBox="0 0 100 100"><path d="M72,18 L75,26 L83,26 L77,31 L79,39 L72,35 L65,39 L67,31 L61,26 L69,26 Z" fill="#ffd700" stroke="#c8a000" stroke-width="2" stroke-linejoin="round"/><path d="M65,32 L18,78" stroke="#c8a000" stroke-width="2.5" stroke-linecap="round"/><path d="M60,35 L14,72 M58,40 L12,78" stroke="#ffd700" stroke-width="2" stroke-linecap="round" opacity="0.5"/><path d="M14,72 Q8,76 10,82 Q16,82 18,76" fill="#ffd700" stroke="#c8a000" stroke-width="1.5"/><path d="M48,48 L50,55 M44,51 L54,51" stroke="#ffd700" stroke-width="1.8" stroke-linecap="round"/><path d="M88,10 L90,18 M84,14 L94,14" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/></svg>`,
+
+  hibiscus: () => `<svg viewBox="0 0 100 100"><path d="M50,50 Q28,38 24,20 Q24,8 36,10 Q46,12 50,50 Z" fill="#e83060" stroke="#a01040" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q62,28 80,24 Q92,24 90,36 Q88,46 50,50 Z" fill="#e83060" stroke="#a01040" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q72,62 76,80 Q76,92 64,90 Q54,88 50,50 Z" fill="#e83060" stroke="#a01040" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q38,72 20,76 Q8,76 10,64 Q12,54 50,50 Z" fill="#e83060" stroke="#a01040" stroke-width="2" stroke-linejoin="round"/><path d="M50,50 Q30,50 18,38 Q12,26 22,20 Q32,16 50,50 Z" fill="#e83060" stroke="#a01040" stroke-width="2" stroke-linejoin="round"/><circle cx="50" cy="50" r="12" fill="#e87838" stroke="#a01040" stroke-width="2"/><line x1="50" y1="38" x2="50" y2="62" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="36" r="3" fill="#ffd700" stroke="#c8a000" stroke-width="1.5"/></svg>`,
+
+  innerChild: () => `<svg viewBox="0 0 100 100"><circle cx="50" cy="28" r="16" fill="#f5d8b0" stroke="#c89870" stroke-width="2.5"/><circle cx="44" cy="24" r="3" fill="white" stroke="#c89870" stroke-width="1.5"/><circle cx="44.8" cy="24" r="1.5" fill="#180808"/><circle cx="56" cy="24" r="3" fill="white" stroke="#c89870" stroke-width="1.5"/><circle cx="56.8" cy="24" r="1.5" fill="#180808"/><path d="M44,33 Q50,38 56,33" fill="none" stroke="#c89870" stroke-width="2" stroke-linecap="round"/><ellipse cx="44" cy="30" r="4" fill="rgba(232,133,154,0.4)"/><ellipse cx="56" cy="30" r="4" fill="rgba(232,133,154,0.4)"/><path d="M36,44 Q30,60 32,78 Q36,90 50,92 Q64,90 68,78 Q70,60 64,44 Q58,40 50,40 Q42,40 36,44 Z" fill="#e8859a" stroke="#a03050" stroke-width="2.5"/><path d="M36,50 Q24,48 18,56 Q16,64 22,68" fill="none" stroke="#f5d8b0" stroke-width="8" stroke-linecap="round"/><path d="M36,50 Q24,48 18,56 Q16,64 22,68" fill="none" stroke="#c89870" stroke-width="2"/><path d="M64,50 Q76,48 82,56 Q84,64 78,68" fill="none" stroke="#f5d8b0" stroke-width="8" stroke-linecap="round"/><path d="M64,50 Q76,48 82,56 Q84,64 78,68" fill="none" stroke="#c89870" stroke-width="2"/><path d="M50,60 Q50,54 56,54 Q62,54 62,60 Q62,66 50,72 Q38,66 38,60 Q38,54 44,54 Q50,54 50,60 Z" fill="rgba(255,255,255,0.4)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/><path d="M22,28 L24,36 M18,32 L28,32" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/><path d="M74,30 L76,38 M70,34 L80,34" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/></svg>`,
+
+  nightMagic: () => `<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#181830" rx="4"/><path d="M72,22 Q88,30 86,50 Q84,68 70,74 Q56,78 46,68 Q38,58 44,46 Q48,38 56,36 Q48,44 50,56 Q52,68 62,70 Q74,70 78,58 Q82,44 72,34 Q68,28 72,22 Z" fill="#ffd700" stroke="#c8a000" stroke-width="1.5"/><path d="M20,20 L22,28 L30,28 L24,33 L26,41 L20,37 L14,41 L16,33 L10,28 L18,28 Z" fill="none" stroke="#ffd700" stroke-width="1.8" stroke-linejoin="round"/><path d="M16,58 L17,63 L22,63 L18,66 L19,71 L16,68 L13,71 L14,66 L10,63 L15,63 Z" fill="#ffd700" stroke="#c8a000" stroke-width="1.2"/><path d="M40,16 L42,24 M36,20 L46,20" stroke="#9b84b8" stroke-width="2" stroke-linecap="round"/><circle cx="55" cy="18" r="2" fill="white" opacity="0.7"/><circle cx="30" cy="42" r="1.5" fill="white" opacity="0.6"/><circle cx="88" cy="35" r="1.5" fill="white" opacity="0.5"/></svg>`,
+
+  bee: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="26" ry="20" fill="#f5d028" stroke="#2a1808" stroke-width="2.5"/><rect x="28" y="52" width="10" height="16" rx="2" fill="#2a1808" opacity="0.7"/><rect x="42" y="52" width="10" height="16" rx="2" fill="#2a1808" opacity="0.7"/><rect x="56" y="52" width="10" height="16" rx="2" fill="#2a1808" opacity="0.7"/><ellipse cx="50" cy="38" rx="14" ry="16" fill="#f5d028" stroke="#2a1808" stroke-width="2.5"/><circle cx="44" cy="33" r="4" fill="white" stroke="#2a1808" stroke-width="1.5"/><circle cx="44.8" cy="33" r="2" fill="#180808"/><circle cx="56" cy="33" r="4" fill="white" stroke="#2a1808" stroke-width="1.5"/><circle cx="56.8" cy="33" r="2" fill="#180808"/><path d="M44,42 Q50,47 56,42" fill="none" stroke="#2a1808" stroke-width="2" stroke-linecap="round"/><ellipse cx="33" cy="46" rx="16" ry="8" fill="#e0eeff" stroke="rgba(100,140,200,0.5)" stroke-width="1.5" transform="rotate(-25,33,46)" opacity="0.75"/><ellipse cx="67" cy="46" rx="16" ry="8" fill="#e0eeff" stroke="rgba(100,140,200,0.5)" stroke-width="1.5" transform="rotate(25,67,46)" opacity="0.75"/></svg>`,
+
+  wind: () => `<svg viewBox="0 0 100 100"><path d="M10,50 Q30,40 50,50 Q70,60 90,50" fill="none" stroke="#9bb0c8" stroke-width="3" stroke-linecap="round"/><path d="M15,62 Q35,52 55,62 Q75,72 95,62" fill="none" stroke="#9bb0c8" stroke-width="2.5" stroke-linecap="round"/><path d="M40,30 Q50,20 58,28 Q52,38 40,30 Z" fill="#90c858" stroke="#3a6818" stroke-width="1.8"/><path d="M62,44 Q74,36 80,46 Q72,54 62,44 Z" fill="#90c858" stroke="#3a6818" stroke-width="1.8" transform="rotate(15,71,45)"/><path d="M18,44 Q28,34 36,42 Q30,52 18,44 Z" fill="#90c858" stroke="#3a6818" stroke-width="1.8" transform="rotate(-10,27,43)"/><path d="M52,16 L54,24 M48,20 L58,20" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/><path d="M88,76 L90,84 M84,80 L94,80" stroke="#ffd700" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+
+  crystal: () => `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="82" rx="22" ry="8" fill="#8a7090" stroke="#5a4060" stroke-width="2"/><rect x="42" y="74" width="16" height="10" rx="4" fill="#7a6080" stroke="#5a4060" stroke-width="2"/><circle cx="50" cy="46" r="36" fill="#c8b0f0" stroke="#6a3898" stroke-width="2.5"/><circle cx="50" cy="46" r="32" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><ellipse cx="42" cy="36" rx="12" ry="10" fill="rgba(255,255,255,0.25)"/><path d="M28,50 Q36,38 50,44 Q64,50 68,44 Q74,36 66,30" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/><path d="M46,38 L47,42 L51,42 L48,44 L49,48 L46,46 L43,48 L44,44 L41,42 L45,42 Z" fill="#e8d8ff" stroke="#6a3898" stroke-width="1" opacity="0.7"/><path d="M58,52 L59,56 L63,56 L60,58 L61,62 L58,60 L55,62 L56,58 L53,56 L57,56 Z" fill="#e8d8ff" stroke="#6a3898" stroke-width="1" opacity="0.6"/></svg>`,
+
+  moon2: () => `<svg viewBox="0 0 100 100"><path d="M60,15 Q85,22 88,50 Q90,74 72,86 Q54,96 36,86 Q18,76 18,55 Q18,34 35,22 Q30,38 36,54 Q42,68 56,70 Q70,70 76,58 Q82,44 72,32 Q66,22 60,15 Z" fill="#f5e8a8" stroke="#c8a830" stroke-width="2.5"/><circle cx="48" cy="48" r="3" fill="#5a4010"/><circle cx="60" cy="42" r="2.5" fill="#5a4010"/><path d="M44,60 Q52,66 60,60" fill="none" stroke="#5a4010" stroke-width="2" stroke-linecap="round"/><path d="M20,20 L22,28 M16,24 L26,24" stroke="#c8a830" stroke-width="1.8" stroke-linecap="round"/><path d="M76,78 L78,86 M72,82 L82,82" stroke="#c8a830" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+};
+
+// =============================================
+// CARD TEXTURES (CSS class + color info)
+// =============================================
+const textures = [
+  { cls:'tex-pink-gingham',  color:'#5a1828', accent:'#8a2848', washiBg:'rgba(255,215,110,0.6)', washiBd:'rgba(200,155,50,0.4)', cornerSticker:'🌸' },
+  { cls:'tex-green-plaid',   color:'#1a3818', accent:'#2a5828', washiBg:'rgba(200,230,215,0.65)', washiBd:'rgba(80,160,120,0.4)', cornerSticker:'🌿' },
+  { cls:'tex-blue-plaid',    color:'#10183a', accent:'#183068', washiBg:'rgba(200,215,255,0.65)', washiBd:'rgba(60,90,200,0.4)', cornerSticker:'🌊' },
+  { cls:'tex-kraft',         color:'#3a1808', accent:'#7a3818', washiBg:'rgba(255,220,150,0.6)', washiBd:'rgba(190,140,50,0.4)', cornerSticker:'🍂' },
+  { cls:'tex-graph',         color:'#1a3010', accent:'#2a5030', washiBg:'rgba(180,225,180,0.65)', washiBd:'rgba(60,140,60,0.4)', cornerSticker:'✦' },
+  { cls:'tex-linen',         color:'#3a2010', accent:'#6a3820', washiBg:'rgba(255,235,185,0.62)', washiBd:'rgba(180,140,70,0.4)', cornerSticker:'🌙' },
+  { cls:'tex-lavender',      color:'#3a1858', accent:'#6a2888', washiBg:'rgba(220,200,255,0.65)', washiBd:'rgba(130,90,200,0.4)', cornerSticker:'✨' },
+  { cls:'tex-dark-navy',     color:'#e8e0ff', accent:'#c9a84c', washiBg:'rgba(255,220,100,0.6)', washiBd:'rgba(200,155,50,0.4)', cornerSticker:'⭐' },
+  { cls:'tex-teal-plaid',    color:'#0a2828', accent:'#1a4848', washiBg:'rgba(180,230,230,0.65)', washiBd:'rgba(20,120,120,0.4)', cornerSticker:'🍃' },
+  { cls:'tex-rose',          color:'#3a0818', accent:'#7a1838', washiBg:'rgba(255,200,215,0.65)', washiBd:'rgba(200,80,130,0.4)', cornerSticker:'🌺' },
+  { cls:'tex-ocean',         color:'#0a1f30', accent:'#1a3850', washiBg:'rgba(185,225,250,0.65)', washiBd:'rgba(20,90,150,0.4)', cornerSticker:'🐚' },
+  { cls:'tex-newsprint',     color:'#2a2010', accent:'#4a3820', washiBg:'rgba(255,245,200,0.62)', washiBd:'rgba(160,130,60,0.4)', cornerSticker:'📰' },
+  { cls:'tex-yellow-gingham',color:'#382a00', accent:'#6a5010', washiBg:'rgba(255,230,130,0.65)', washiBd:'rgba(190,150,20,0.4)', cornerSticker:'🌻' },
+  { cls:'tex-red-gingham',   color:'#4a0808', accent:'#8a1a1a', washiBg:'rgba(255,200,195,0.65)', washiBd:'rgba(190,50,50,0.4)', cornerSticker:'♥' },
+  { cls:'tex-purple-plaid',  color:'#2a0a4a', accent:'#5a1880', washiBg:'rgba(220,200,255,0.65)', washiBd:'rgba(100,40,180,0.4)', cornerSticker:'🔮' },
+];
+
+// =============================================
+// CARD DATA
+// =============================================
+const cards = [
+  {id:1,  title:'The Moon Child',    affirmation:'You are made of moonlight and midnight magic. The dark holds no power over your glow.',       illoKey:'moon'},
+  {id:2,  title:'The Wizard Frog',   affirmation:'Poof! You are now untired, unbothered, and absolutely enchanting. Your spell is cast.',       illoKey:'frog'},
+  {id:3,  title:'The Mushroom Oracle',affirmation:'You grow in the dark and bloom in the light. Both are sacred. Both are you.',                illoKey:'mushroom'},
+  {id:4,  title:'The Metamorphosis', affirmation:'You are always in the process of becoming something more beautiful than before.',              illoKey:'butterfly'},
+  {id:5,  title:'The Bloom',         affirmation:'Softness is your superpower. You do not have to be hard to be strong.',                       illoKey:'flower'},
+  {id:6,  title:'The Star Child',    affirmation:'You fell from the sky on purpose. Everything about you was designed to shine.',                illoKey:'star'},
+  {id:7,  title:'The Ocean Baby',    affirmation:'Like the tide, you have every right to take up space and make your presence known.',          illoKey:'shell'},
+  {id:8,  title:'The Silly Goose',   affirmation:'What is life without a little silliness? You are allowed to be delightfully ridiculous.',     illoKey:'goose'},
+  {id:9,  title:'The Castle Seeker', affirmation:'You found a way then, and you\'ll find a way now. Your path is made by walking.',             illoKey:'castle'},
+  {id:10, title:'The Forest Fairy',  affirmation:'You are rooted and you are wild. The trees know your name and whisper it with love.',         illoKey:'leafFairy'},
+  {id:11, title:'The Sunflower',     affirmation:'Even on cloudy days, you know which direction the light is. Always turn toward it.',          illoKey:'sunflower'},
+  {id:12, title:'The Gentle One',    affirmation:'Your sensitivity is not a flaw. It is how you feel the magic others walk right past.',       illoKey:'hedgehog'},
+  {id:13, title:'The Worm & Apple',  affirmation:'Every story has a beginning. Yours is a good one, even the parts that felt like rot.',        illoKey:'wormApple'},
+  {id:14, title:'The Spider\'s Web', affirmation:'You weave something intricate and strong from nothing. That is extraordinary.',               illoKey:'web'},
+  {id:15, title:'The After Rain',    affirmation:'You are the proof that beautiful things follow hard times. You are the rainbow.',              illoKey:'rainbow'},
+  {id:16, title:'The Patient One',   affirmation:'You are not stuck. You are transforming. There is a magnificent difference.',                 illoKey:'caterpillar'},
+  {id:17, title:'The Peace Keeper',  affirmation:'You are allowed to put down what is heavy. Your arms were meant for flying.',                 illoKey:'dove'},
+  {id:18, title:'The Desert Bloom',  affirmation:'You can thrive with very little and still give everything you have. That is resilience.',     illoKey:'cactus'},
+  {id:19, title:'The Clever One',    affirmation:'Your mind is a forest full of hidden paths. Trust where your curiosity leads you.',           illoKey:'fox'},
+  {id:20, title:'The Shooting Star', affirmation:'Make your wish. You are the magic AND the thing being wished for.',                           illoKey:'shootingStar'},
+  {id:21, title:'The Hibiscus',      affirmation:'You open fully, beautifully, without apology. That is how you were always meant to live.',    illoKey:'hibiscus'},
+  {id:22, title:'The Inner Child',   affirmation:'She never left. She has been waiting for you to come back and play. Welcome home.',           illoKey:'innerChild'},
+  {id:23, title:'The Night Magic',   affirmation:'Strange things grow in the dark. You are the strangest, most beautiful of all.',              illoKey:'nightMagic'},
+  {id:24, title:'The Busy Bee',      affirmation:'Rest, little one. Even bees stop flying. Your worth was never tied to your productivity.',    illoKey:'bee'},
+  {id:25, title:'The Wind Whisperer',affirmation:'Let go of what no longer fits. You were never meant to carry everything forever.',            illoKey:'wind'},
+  {id:26, title:'The Crystal Ball',  affirmation:'Your intuition is your oldest friend. Trust the feeling before you trust the logic.',         illoKey:'crystal'},
+  {id:27, title:'The Crescent Dream',affirmation:'Rest is sacred. Even the moon disappears to be reborn. So can you.',                         illoKey:'moon2'},
+  {id:28, title:'The Glitter Star',  affirmation:'You are allowed to take up the whole sky. You were not made to shrink.',                      illoKey:'star'},
+  {id:29, title:'The Garden Gate',   affirmation:'You are allowed to let people in. The most beautiful gardens have open gates.',               illoKey:'flower'},
+  {id:30, title:'The Metamorph',     affirmation:'Wings take time. Let the cocoon hold you just a little longer, darling.',                    illoKey:'butterfly'},
+];
+
+const washibackColors = [
+  ['rgba(255,215,110,0.55)','rgba(200,155,50,0.35)'],
+  ['rgba(200,230,215,0.6)','rgba(80,160,120,0.35)'],
+  ['rgba(220,200,255,0.6)','rgba(130,90,200,0.35)'],
+  ['rgba(255,200,215,0.6)','rgba(200,80,130,0.35)'],
+  ['rgba(180,225,180,0.6)','rgba(60,140,60,0.35)'],
+  ['rgba(200,215,255,0.6)','rgba(60,90,200,0.35)'],
+];
+
+// Build mini cards
+const grid = document.getElementById('cardsGrid');
+cards.forEach((card, i) => {
+  const tex = textures[i % textures.length];
+  const rot = ((i * 7 + 3) % 13) - 6.2;
+  const illoSvg = illos[card.illoKey]();
+  const wc = washibackColors[i % washibackColors.length];
+
+  // Mini card container
+  const outer = document.createElement('div');
+  outer.className = 'mini-card';
+  outer.style.transform = `rotate(${rot}deg)`;
+
+  const inner = document.createElement('div');
+  inner.className = 'mini-card-inner';
+
+  // — BACK face —
+  const back = document.createElement('div');
+  back.className = 'mini-face mini-back';
+  back.innerHTML = `
+    <div class="mini-back-pattern">
+      <div class="mini-back-deco">✦</div>
+      <svg width="44" height="44" viewBox="0 0 60 60">
+        <path d="M30,5 L33,19 L47,19 L36,27 L40,41 L30,33 L20,41 L24,27 L13,19 L27,19 Z" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M12,8 L14,16 M8,12 L18,12" stroke="#9b84b8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M48,44 L50,52 M44,48 L54,48" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="mini-back-num">✦ ${String(card.id).padStart(2,'0')} ✦</div>
+    </div>
+  `;
+
+  // — FRONT face —
+  const front = document.createElement('div');
+  front.className = `mini-face mini-front ${tex.cls}`;
+  front.style.color = tex.color;
+
+  // washi tape
+  const wasWidth = 44 + Math.floor(i * 3 % 18);
+  const wasRot = ((i * 11 + 2) % 14) - 7;
+  front.innerHTML = `
+    <div class="m-washi" style="width:${wasWidth}px;transform:translateX(-50%) rotate(${wasRot}deg);background:${tex.washiBg};border:1px solid ${tex.washiBd};"></div>
+    <div class="corner-sticker">${tex.cornerSticker}</div>
+    <div class="m-illo">${illoSvg}</div>
+    <div class="m-title" style="color:${tex.accent}">${card.title}</div>
+    <div class="m-snippet">${card.affirmation}</div>
+  `;
+
+  inner.appendChild(back);
+  inner.appendChild(front);
+  outer.appendChild(inner);
+
+  outer.addEventListener('click', () => {
+    outer.classList.toggle('flipped');
+    if (outer.classList.contains('flipped')) {
+      showToast(`✦ ${card.title} ✦`);
+    }
+  });
+
+  grid.appendChild(outer);
+});
+
+// =============================================
+// BIG CARD LOGIC
+// =============================================
+let bigCardIsFlipped = false;
+let currentCardIdx = -1;
+
+function drawCard() {
+  const btn = document.getElementById('shuffleBtn');
+  btn.classList.add('shuffling');
+  setTimeout(() => btn.classList.remove('shuffling'), 700);
+
+  const i = Math.floor(Math.random() * cards.length);
+  setTimeout(() => revealCard(cards[i], i), 450);
+}
+
+function revealCard(card, i) {
+  currentCardIdx = i;
+  bigCardIsFlipped = false;
+
+  const wrap = document.getElementById('bigCardWrap');
+  const front = document.getElementById('bigFront');
+  const tex = textures[i % textures.length];
+  const wc = washibackColors[i % washibackColors.length];
+  const illoSvg = illos[card.illoKey]();
+
+  // Reset to back
+  wrap.classList.remove('flipped');
+
+  // Fill front
+  front.className = `card-face big-front ${tex.cls}`;
+  front.style.color = tex.color;
+  front.innerHTML = `
+    <div class="card-washi" style="background:${tex.washiBg};border:1px solid ${tex.washiBd};"></div>
+    <div style="font-family:'Kalam',cursive;font-size:10px;letter-spacing:2px;color:${tex.accent};opacity:0.65;margin-top:14px">✦ card ${String(card.id).padStart(2,'0')} ✦</div>
+    <div class="big-illo">${illoSvg}</div>
+    <div class="big-title" style="color:${tex.accent}">${card.title}</div>
+    <div class="big-affirmation">"${card.affirmation}"</div>
+    <div class="big-num" style="color:${tex.accent}">✦ · ✦ · ✦</div>
+  `;
+
+  const area = document.getElementById('revealArea');
+  area.classList.add('visible');
+
+  // Flip to front after short pause
+  setTimeout(() => {
+    wrap.classList.add('flipped');
+    bigCardIsFlipped = true;
+  }, 350);
+
+  setTimeout(() => area.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+  showToast(`✦ ${card.title} has chosen you ✦`);
+}
+
+function toggleBigFlip() {
+  const wrap = document.getElementById('bigCardWrap');
+  if (wrap.classList.contains('flipped')) {
+    wrap.classList.remove('flipped');
+    bigCardIsFlipped = false;
+  } else {
+    wrap.classList.add('flipped');
+    bigCardIsFlipped = true;
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3800);
+}
+</script>
+</body>
+</html>
