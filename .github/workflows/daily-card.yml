@@ -1,0 +1,40 @@
+name: Generate Daily Card
+
+on:
+  schedule:
+    # Runs every day at midnight UTC
+    - cron: '0 0 * * *'
+  # Also lets you run it manually from GitHub's website
+  workflow_dispatch:
+
+jobs:
+  generate-card:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Anthropic SDK
+        run: pip install anthropic
+
+      - name: Generate today's card
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate_card.py
+
+      - name: Commit the new daily card
+        run: |
+          git config --global user.name "Whimsy Bot"
+          git config --global user.email "whimsy@whimsydeck.com"
+          git add daily_card.json
+          git diff --staged --quiet || git commit -m "✨ Daily card for $(date +'%B %d, %Y')"
+          git push
